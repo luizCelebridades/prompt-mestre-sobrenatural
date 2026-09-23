@@ -78,4 +78,4 @@ else:
     st.markdown("---")
     st.markdown("### Quer acesso ilimitado sem se preocupar com limites?")
     st.markdown("Tenha o **Prompt Mestre Sobrenatural** liberado 24 horas por dia para escalar o seu canal dark.")
-    st.markdown("[👉 Clique aqui para assinar o plano completo na Hotmart (R$ 29,90/mês)](https://pay.hotmart.com/SEU_LINK_AQUI)")
+    st.markdown("[👉 Clique aqui para assinar o plano completo na Hotmart (R$ 29,90/mês)](https://pay.hotmart.com/P107727028S)")
