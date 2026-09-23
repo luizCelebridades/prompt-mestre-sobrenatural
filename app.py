@@ -1,5 +1,5 @@
 import datetime
-import json
+import json        
 import os
 import streamlit as st
 
@@ -9,7 +9,7 @@ st.markdown(
     "Gerador de roteiros e ideias para criadores de conteúdo do nicho dark e"
     " sobrenatural."
 )
-
+    
 ARQUIVO_CONTROLE = "controle_chaves.json"
 
 
@@ -158,5 +158,5 @@ else:
   )
   st.markdown(
       "[👉 Clique aqui para assinar o plano completo na Hotmart (R$ 29,90/mês)]"
-      "(https://pay.hotmart.com/E101569438D)"
+      "(https://pay.hotmart.com/P107727028S)"
   )
