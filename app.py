@@ -109,5 +109,5 @@ if st.button("Gerar Prompt Sobrenatural"):
         )
         st.link_button(
             "Quero assinar o plano para criadores (R$ 29,90/mês)",
-            "https://link-da-sua-plataforma-de-pagamento.com",
+            "https://pay.hotmart.com/P107727028S",
         )
