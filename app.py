@@ -1,5 +1,5 @@
 import datetime
-import json        
+import json
 import os
 import streamlit as st
 
@@ -9,7 +9,7 @@ st.markdown(
     "Gerador de roteiros e ideias para criadores de conteúdo do nicho dark e"
     " sobrenatural."
 )
-    
+
 ARQUIVO_CONTROLE = "controle_chaves.json"
 
 
@@ -63,7 +63,6 @@ def carregar_dados():
     try:
       with open(ARQUIVO_CONTROLE, "r", encoding="utf-8") as f:
         dados = json.load(f)
-        # Garante que todas as chaves padrão existem no arquivo carregado
         for k, v in chaves_padrao.items():
           if k not in dados:
             dados[k] = v
@@ -116,7 +115,6 @@ elif chave_digitada in st.session_state.chaves_bonus:
   # Verifica o limite diário de 25 acessos para esta chave específica
   if dados_chave["usos_hoje"] < MAX_ACESSOS_DIARIOS:
     dados_chave["usos_hoje"] += 1
-    # Salva imediatamente de forma persistente no arquivo
     salvar_dados(st.session_state.chaves_bonus)
     acesso_liberado = True
     mensagem_status = (
@@ -158,5 +156,5 @@ else:
   )
   st.markdown(
       "[👉 Clique aqui para assinar o plano completo na Hotmart (R$ 29,90/mês)]"
-      "(https://pay.hotmart.com/P107727028S)"
+      "(https://pay.hotmart.com/H10774349)"
   )
