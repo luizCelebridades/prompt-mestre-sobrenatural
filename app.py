@@ -8,8 +8,7 @@ import google.generativeai as genai
 st.title("Prompt Mestre Sobrenatural")
 st.markdown("Gerador de roteiros e ideias para criadores de conteúdo do nicho dark e sobrenatural.")
 
-# Configuração da API (Pode puxar dos Secrets do Streamlit ou inserir diretamente)
-# Recomendamos configurar no st.secrets["GEMINI_API_KEY"] para segurança máxima
+# Configuração da API
 try:
     GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
 except Exception:
@@ -109,7 +108,6 @@ if acesso_liberado:
                     try:
                         genai.configure(api_key=GOOGLE_API_KEY)
                         
-                        # Prompt de Sistema (Prompt-Mestre v10 incorporado)
                         prompt_sistema = """
                         Você é um roteirista especialista em histórias reais de terror e sobrenatural para YouTube, com domínio de storytelling e gatilhos mentais de persuasão aplicados à retenção de audiência. Ao receber um tema, siga rigorosamente esta ordem de entrega dividida em fases:
                         1. Análise de potencial e duração (Curta, Média ou Longa).
@@ -122,8 +120,9 @@ if acesso_liberado:
                         8. Spin-off de Short (30-45s).
                         """
                         
-                      modelo_ia = genai.GenerativeModel(
-    model_name="gemini-2.5-flash", system_instruction=prompt_sistema
+                        modelo_ia = genai.GenerativeModel(
+                            model_name="gemini-1.5-flash",
+                            system_instruction=prompt_sistema
                         )
                         
                         resposta = modelo_ia.generate_content(f"Tema do vídeo: {tema}")
