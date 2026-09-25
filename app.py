@@ -2,10 +2,18 @@ import streamlit as st
 import json
 import os
 import datetime
+import google.generativeai as genai
 
 # Título do App
 st.title("Prompt Mestre Sobrenatural")
 st.markdown("Gerador de roteiros e ideias para criadores de conteúdo do nicho dark e sobrenatural.")
+
+# Configuração da API (Pode puxar dos Secrets do Streamlit ou inserir diretamente)
+# Recomendamos configurar no st.secrets["GEMINI_API_KEY"] para segurança máxima
+try:
+    GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
+except Exception:
+    GOOGLE_API_KEY = ""
 
 ARQUIVO_CONTROLE = "controle_chaves.json"
 
@@ -67,12 +75,10 @@ elif chave_digitada in st.session_state.chaves_bonus:
     hoje_str = str(datetime.date.today())
     dados_chave = st.session_state.chaves_bonus[chave_digitada]
     
-    # Reseta o contador se mudou o dia
     if dados_chave["data_ultimo_uso"] != hoje_str:
         dados_chave["usos_hoje"] = 0
         dados_chave["data_ultimo_uso"] = hoje_str
         
-    # Verifica o limite diário de 25 acessos para esta chave específica
     if dados_chave["usos_hoje"] < MAX_ACESSOS_DIARIOS:
         dados_chave["usos_hoje"] += 1
         salvar_dados(st.session_state.chaves_bonus)
@@ -96,20 +102,38 @@ if acesso_liberado:
 
     if st.button("Gerar Prompt Sobrenatural"):
         if tema:
-            st.markdown(f"### Roteiro e Estrutura Dark para: {tema}")
-            
-            st.markdown("#### 1. Gancho (Hook - Primeiros 5 segundos)")
-            st.markdown(f"> *E se eu te dissesse que o que contam sobre **{tema}** esconde um segredo que as autoridades tentam apagar? Ouça até o final se tiver coragem...*")
-            
-            st.markdown("#### 2. Atmosfera e Ambientação")
-            st.markdown("Trilha sonora de fundo: Baixa frequência (drone sombrio) com ruídos estáticos de rádio antigo. Efeitos visuais em tons dessaturados (preto, branco e vermelho escuro).")
-            
-            st.markdown("#### 3. Desenvolvimento da Narrativa")
-            st.markdown(f"Exploração profunda dos mitos, relatos de testemunhas oculares e os recantos mais escuros associados a **{tema}**. Construção gradual de tensão psicológica e mistério.")
-            
-            st.markdown("#### 4. Chamada para Ação (CTA)")
-            st.markdown(f"*Você teria coragem de investigar **{tema}** sozinho? Deixe nos comentários e compartilhe este vídeo com alguém que ama um bom mistério.*")
-            
+            if not GOOGLE_API_KEY:
+                st.error("Chave da API do Google Gemini não configurada nos Segredos (Secrets) do Streamlit.")
+            else:
+                with st.spinner("A IA está estruturando o seu roteiro dark e os metadados..."):
+                    try:
+                        genai.configure(api_key=GOOGLE_API_KEY)
+                        
+                        # Prompt de Sistema (Prompt-Mestre v10 incorporado)
+                        prompt_sistema = """
+                        Você é um roteirista especialista em histórias reais de terror e sobrenatural para YouTube, com domínio de storytelling e gatilhos mentais de persuasão aplicados à retenção de audiência. Ao receber um tema, siga rigorosamente esta ordem de entrega dividida em fases:
+                        1. Análise de potencial e duração (Curta, Média ou Longa).
+                        2. Construção do roteiro completo com os 7 gatilhos mentais (Afeição, Autoridade, Prova social, Escassez/urgência, História, Novidade, Reciprocidade).
+                        3. Capítulo 0 — Gancho [00:00:00] obrigatório e independente, seguido de blocos com timestamps (XX:XX:XX).
+                        4. Prompt de imagem de choque ambíguo (frame 1) com estilo fotorrealista assustador (hyperrealistic skin texture, analog horror aesthetic, gritty, sinister, shot on 35mm film, cinematic lighting, 8k).
+                        5. Metadados (5 opções de título com o recomendado em maiúsculas, descrição curta com hashtags otimizadas para engajamento e tags).
+                        6. Versão de narração (ElevenLabs) em texto corrido com pontuação de ritmo (reticências, frases curtas, aspas).
+                        7. Ficha de personagens/cenário e Briefing de thumbnail (Flow + Canva).
+                        8. Spin-off de Short (30-45s).
+                        """
+                        
+                        modelo_ia = genai.GenerativeModel(
+                            model_name="gemini-1.5-pro",
+                            system_instruction=prompt_sistema
+                        )
+                        
+                        resposta = modelo_ia.generate_content(f"Tema do vídeo: {tema}")
+                        
+                        st.markdown(f"### Roteiro Gerado para: {tema}")
+                        st.markdown(resposta.text)
+                        
+                    except Exception as e:
+                        st.error(f"Ocorreu um erro ao gerar o roteiro com a IA: {e}")
         else:
             st.warning("Por favor, digite um tema.")
 else:
