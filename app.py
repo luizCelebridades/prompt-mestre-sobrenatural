@@ -131,7 +131,7 @@ else:
   acesso_liberado = False
   mensagem_status = "Chave inválida."
 
-# Exibe o status e a interface do app
+# Exibe o status e a interface do aprofundada do gerador
 if acesso_liberado:
   if chave_digitada != "visitante_teste" and not simular_assinante:
     st.success(mensagem_status)
@@ -142,8 +142,20 @@ if acesso_liberado:
 
   if st.button("Gerar Prompt Sobrenatural"):
     if tema:
-      st.markdown(f"### Roteiro gerado para: {tema}")
-      st.write("Aqui entraria o prompt estruturado de suspense gerado pela IA...")
+      st.markdown(f"### Roteiro e Estrutura Dark para: {tema}")
+      
+      st.markdown("#### 1. Gancho (Hook - Primeiros 5 segundos)")
+      st.info(f"E se eu te dissesse que o que contam sobre {tema} esconde um segredo que as autoridades tentam apagar? Ouça até o final se tiver coragem...")
+      
+      st.markdown("#### 2. Atmosfera e Ambientação")
+      st.write("Trilha sonora de fundo: Baixa frequência (drone sombrio) com ruídos estáticos de rádio antigo. Efeitos visuais em tons dessaturados (preto, branco e vermelho escuro).")
+      
+      st.markdown("#### 3. Desenvolvimento da Narrativa")
+      st.write(f"Exploração profunda dos mitos, relatos de testemunhas oculares e os recantos mais escuros associados a **{tema}**. Construção gradual de tensão psicológica.")
+      
+      st.markdown("#### 4. Chamada para Ação (CTA)")
+      st.warning("Você teria coragem de investigar isso sozinho? Deixe nos comentários e compartilhe este vídeo com alguém que ama um bom mistério.")
+      
     else:
       st.warning("Por favor, digite um tema.")
 else:
