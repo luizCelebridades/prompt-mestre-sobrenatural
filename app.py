@@ -122,8 +122,8 @@ if acesso_liberado:
                         8. Spin-off de Short (30-45s).
                         """
                         
-                        modelo_ia = genai.GenerativeModel(
-    model_name="gemini-pro", system_instruction=prompt_sistema
+                      modelo_ia = genai.GenerativeModel(
+    model_name="gemini-2.5-flash", system_instruction=prompt_sistema
                         )
                         
                         resposta = modelo_ia.generate_content(f"Tema do vídeo: {tema}")
