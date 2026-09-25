@@ -123,8 +123,7 @@ if acesso_liberado:
                         """
                         
                         modelo_ia = genai.GenerativeModel(
-                            model_name="gemini-1.5-pro",
-                            system_instruction=prompt_sistema
+    model_name="gemini-1.5-flash", system_instruction=prompt_sistema
                         )
                         
                         resposta = modelo_ia.generate_content(f"Tema do vídeo: {tema}")
