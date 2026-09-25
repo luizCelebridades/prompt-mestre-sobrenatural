@@ -138,23 +138,23 @@ if acesso_liberado:
   elif simular_assinante:
     st.info(mensagem_status)
 
-  tema = st.text_input("Sobre qual lenda ou tema sobrenatural será o vídeo de hoje?")
+ tema = st.text_input("Sobre qual lenda ou tema sobrenatural será o vídeo de hoje?")
 
   if st.button("Gerar Prompt Sobrenatural"):
     if tema:
       st.markdown(f"### Roteiro e Estrutura Dark para: {tema}")
       
       st.markdown("#### 1. Gancho (Hook - Primeiros 5 segundos)")
-      st.info(f"E se eu te dissesse que o que contam sobre {tema} esconde um segredo que as autoridades tentam apagar? Ouça até o final se tiver coragem...")
+      st.markdown(f"> *E se eu te dissesse que o que contam sobre **{tema}** esconde um segredo que as autoridades tentam apagar? Ouça até o final se tiver coragem...*")
       
       st.markdown("#### 2. Atmosfera e Ambientação")
-      st.write("Trilha sonora de fundo: Baixa frequência (drone sombrio) com ruídos estáticos de rádio antigo. Efeitos visuais em tons dessaturados (preto, branco e vermelho escuro).")
+      st.markdown("Trilha sonora de fundo: Baixa frequência (drone sombrio) com ruídos estáticos de rádio antigo. Efeitos visuais em tons dessaturados (preto, branco e vermelho escuro).")
       
       st.markdown("#### 3. Desenvolvimento da Narrativa")
-      st.write(f"Exploração profunda dos mitos, relatos de testemunhas oculares e os recantos mais escuros associados a **{tema}**. Construção gradual de tensão psicológica.")
+      st.markdown(f"Exploração profunda dos mitos, relatos de testemunhas oculares e os recantos mais escuros associados a **{tema}**. Construção gradual de tensão psicológica e mistério.")
       
       st.markdown("#### 4. Chamada para Ação (CTA)")
-      st.warning("Você teria coragem de investigar isso sozinho? Deixe nos comentários e compartilhe este vídeo com alguém que ama um bom mistério.")
+      st.markdown(f"*Você teria coragem de investigar **{tema}** sozinho? Deixe nos comentários e compartilhe este vídeo com alguém que ama um bom mistério.*")
       
     else:
       st.warning("Por favor, digite um tema.")
