@@ -125,7 +125,7 @@ elif chave_digitada in st.session_state.chaves_bonus:
     acesso_liberado = False
     mensagem_status = (
         "Esta chave atingiu o limite de utilizações de hoje. Garanta acesso"
-        " ilimitado na Hotmart!"
+        " ilimitado na Kiwify!"
     )
 else:
   acesso_liberado = False
@@ -155,6 +155,6 @@ else:
       " escalar o seu canal dark."
   )
   st.markdown(
-      "[👉 Clique aqui para assinar o plano completo na Hotmart (R$ 29,90/mês)]"
-      "(https://pay.hotmart.com/H10774349)"
+      "[👉 Clique aqui para assinar o plano completo na"
+      " Kiwify](https://pay.kiwify.com.br/rHfgxUR)"
   )
