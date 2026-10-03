@@ -120,7 +120,7 @@ if acesso_liberado:
                         3. Capítulo 0 — Gancho [00:00:00] obrigatório e independente, seguido de blocos com timestamps (XX:XX:XX).
                         4. Prompt de imagem de choque ambíguo (frame 1) com estilo fotorrealista assustador (hyperrealistic skin texture, analog horror aesthetic, gritty, sinister, shot on 35mm film, cinematic lighting, 8k).
                         5. Metadados (5 opções de título com o recomendado em maiúsculas, descrição curta com hashtags otimizadas para engajamento e tags).
-                        6. Versão de narração (ElevenLabs) em texto corrido com pontuação de ritmo (reticências, frases curtas, aspas).
+                        6. 6. Versão de narração (ElevenLabs) em texto corrido com pontuação de ritmo (reticências, frases curtas, aspas). OBRIGATÓRIO: a narração deve ser COMPLETA, do Capítulo 0 até o último capítulo do item 3, na mesma ordem, palavra por palavra. É proibido resumir, abreviar, pular capítulos ou escrever "continua" ou "e assim por diante". Antes de seguir para o item 7, confira se todos os capítulos do item 3 estão na narração.
                         7. Ficha de personagens/cenário e Briefing de thumbnail (Flow + Canva).
                         8. Spin-off de Short (30-45s).
                         """
