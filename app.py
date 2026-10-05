@@ -27,7 +27,7 @@ if not firebase_admin._apps:
 db = firestore.client()
 
 # Limites diários por tipo de chave
-LIMITES = {"bonus": 25, "assinante": 30}
+ LIMITES = {"bonus": 10, "assinante": 20}
 
 # --- BARRA LATERAL ---
 st.sidebar.header("Painel de Acesso")
@@ -51,7 +51,7 @@ if chave_digitada:
         dados_chave = doc.to_dict()
         tipo = dados_chave.get("tipo", "bonus")
         status = dados_chave.get("status", "ativa")
-        limite = LIMITES.get(tipo, 25)
+        limite = LIMITES.get(tipo, 10)
         hoje_str = str(datetime.date.today())
 
         if status != "ativa":
@@ -75,9 +75,9 @@ if chave_digitada:
             else:
                 if tipo == "bonus":
                     mensagem_status = (
-                        "Esta chave bônus atingiu o limite de hoje. Garanta"
-                        " acesso ilimitado assinando na Kiwify!"
-                    )
+    "Esta chave bônus atingiu o limite de hoje. Garanta"
+    f" {LIMITES['assinante']} gerações por dia assinando na Kiwify!"
+)
                 else:
                     mensagem_status = (
                         f"Você atingiu seu limite diário de {limite}"
@@ -146,7 +146,8 @@ if acesso_liberado:
 else:
     st.error(mensagem_status)
     st.markdown("---")
-    st.markdown("### Quer acesso ilimitado sem se preocupar com limites?")
+        st.markdown("### Quer acesso sem se preocupar com limites?")
+    st.markdown(f"São {LIMITES['assinante']} gerações por dia, todos os dias, para quem assina o plano completo.")
     st.markdown(
         "[👉 Clique aqui para assinar o plano completo na"
         " Kiwify](https://pay.kiwify.com.br/rHfgxUR)"
