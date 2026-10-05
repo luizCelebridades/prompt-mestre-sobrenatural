@@ -27,8 +27,7 @@ if not firebase_admin._apps:
 db = firestore.client()
 
 # Limites diários por tipo de chave
- LIMITES = {"bonus": 10, "assinante": 20}
-
+LIMITES = {"bonus": 10, "assinante": 20}
 # --- BARRA LATERAL ---
 st.sidebar.header("Painel de Acesso")
 chave_digitada = (
@@ -146,7 +145,7 @@ if acesso_liberado:
 else:
     st.error(mensagem_status)
     st.markdown("---")
-        st.markdown("### Quer acesso sem se preocupar com limites?")
+    st.markdown("### Quer acesso sem se preocupar com limites?")
     st.markdown(f"São {LIMITES['assinante']} gerações por dia, todos os dias, para quem assina o plano completo.")
     st.markdown(
         "[👉 Clique aqui para assinar o plano completo na"
