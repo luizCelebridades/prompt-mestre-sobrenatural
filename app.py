@@ -129,12 +129,12 @@ if acesso_liberado:
                             model_name="gemini-3.5-flash", system_instruction=prompt_sistema
                         )
 
-                        resposta = modelo_ia.generate_content(f"Tema do vídeo: {tema}")
+                        resposta = modelo_ia.generate_content(f"Tema do vídeo: {tema}", stream=True)
 
                         st.markdown(
                             f"### Roteiro Gerado com Sucesso para: {tema}"
                         )
-                        st.markdown(resposta.text)
+                        texto_final = st.write_stream(parte.text for parte in resposta if parte.candidates and parte.candidates[0].content.parts)
 
                     except Exception as e:
                         st.error(
