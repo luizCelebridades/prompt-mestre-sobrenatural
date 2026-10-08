@@ -151,3 +151,4 @@ else:
         "[👉 Clique aqui para assinar o plano completo na"
         " Kiwify](https://pay.kiwify.com.br/rHfgxUR)"
     )
+    st.markdown("Suporte: [prompt.mestre.sobrenatural@gmail.com](mailto:prompt.mestre.sobrenatural@gmail.com)")
