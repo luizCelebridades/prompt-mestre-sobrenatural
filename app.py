@@ -26,6 +26,12 @@ st.markdown(
     [data-testid="stAlert"] p {
         color: #FFFFFF !important;
     }
+  [data-testid="stSidebar"],
+    [data-testid="stSidebar"] > div:first-child {
+        background-color: #0B0B0F !important;
+    }
+    [data-testid="stSidebar"] {
+        border-right: 1px solid #2A2A3A !important;
     </style>
     """,
     unsafe_allow_html=True,
