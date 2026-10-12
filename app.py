@@ -9,6 +9,27 @@ st.set_page_config(
     page_title="Prompt Mestre Sobrenatural", page_icon="🔮", layout="centered"
 )
 st.title("Prompt Mestre Sobrenatural")
+
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"] [data-baseweb="input"] {
+        background-color: #2A2A3A !important;
+        border: 1px solid #7C7C94 !important;
+        border-radius: 8px !important;
+    }
+    [data-testid="stSidebar"] [data-baseweb="input"] > div,
+    [data-testid="stSidebar"] input {
+        background-color: #2A2A3A !important;
+        color: #FFFFFF !important;
+    }
+    [data-testid="stAlert"] p {
+        color: #FFFFFF !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 st.markdown(
     "Gerador profissional de roteiros e ideias para criadores de conteúdo do"
     " nicho dark e sobrenatural."
