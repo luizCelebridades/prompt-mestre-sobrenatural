@@ -115,7 +115,7 @@ if chave_digitada:
             " acesso."
         )
 else:
-    mensagem_status = "Abra o menu no canto superior esquerdo (seta >), digite sua chave de acesso e toque fora do campo para começar."
+    mensagem_status = "Digite sua chave de acesso no painel ao lado e aperte Enter. No celular, abra o menu no canto superior esquerdo (seta >), digite a chave e toque fora do campo para começar."
 
 # --- INTERFACE PRINCIPAL ---
 if acesso_liberado:
