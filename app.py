@@ -59,7 +59,7 @@ LIMITES = {"bonus": 10, "assinante": 20}
 st.sidebar.header("Painel de Acesso")
 chave_digitada = (
     st.sidebar.text_input(
-        "Digite sua Chave de Acesso (e-mail usado na compra ou chave bônus):"
+        "Digite sua Chave de Acesso (e-mail usado na compra ou chave bônus) e toque fora do campo, ou aperte Enter, para confirmar:"
     )
     .strip()
     .lower()
@@ -115,7 +115,7 @@ if chave_digitada:
             " acesso."
         )
 else:
-    mensagem_status = "Digite sua chave de acesso ao lado para começar."
+    mensagem_status = "Abra o menu no canto superior esquerdo (seta >), digite sua chave de acesso e toque fora do campo para começar."
 
 # --- INTERFACE PRINCIPAL ---
 if acesso_liberado:
